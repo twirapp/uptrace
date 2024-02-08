@@ -33,8 +33,8 @@ services:
     image: 'uptrace/uptrace:1.6.2'
     #image: 'uptrace/uptrace-dev:latest'
     restart: on-failure
-    volumes:
-      - ./uptrace.yml:/etc/uptrace/uptrace.yml
+    # volumes:
+    #   - ./uptrace.yml:/etc/uptrace/uptrace.yml
     #environment:
     #  - DEBUG=2
     ports:
