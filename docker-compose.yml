@@ -44,17 +44,17 @@ services:
   otelcol:
     image: otel/opentelemetry-collector-contrib:0.88.0
     restart: on-failure
-    volumes:
-      - ./otel-collector.yaml:/etc/otelcol-contrib/config.yaml
+    # volumes:
+    #   - ./otel-collector.yaml:/etc/otelcol-contrib/config.yaml
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
   grafana:
     image: grafana/grafana:9.5.3
     restart: on-failure
-    volumes:
-      - ../../config/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-      - ../../config/grafana/custom.ini:/etc/grafana/grafana.ini
+    # volumes:
+    #   - ../../config/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+    #   - ../../config/grafana/custom.ini:/etc/grafana/grafana.ini
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
@@ -62,7 +62,7 @@ services:
     image: prom/prometheus:v2.36.2
     restart: always
     volumes:
-      - ../../config/prometheus/:/etc/prometheus/
+      # - ../../config/prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
