@@ -40,6 +40,11 @@ services:
     ports:
       - '14317:14317'
       - '14318:14318'
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.twir-uptrace.rule=Host(`uptrace.twir.app`)
+      - traefik.http.services.twir-uptrace.loadbalancer.server.port=14317
+      - traefik.docker.network=traefik-public
 
   otelcol:
     image: otel/opentelemetry-collector-contrib:0.88.0
